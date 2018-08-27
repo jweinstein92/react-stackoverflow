@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import styles from './App.scss';
-
-console.log(styles);
+import app from './App.scss';
+import stackoverflow from '../stackoverflow.scss';
+console.log(stackoverflow);
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.app}>
-        <header className={styles.header}>
-          <img src={logo} className={styles.logo} alt="logo" />
-          <h1 className={styles.title}>Welcome to React</h1>
+      <div className={app.app}>
+        <header className={app.header}>
+          <span className={stackoverflow.logo}>Stack Overflow</span>
         </header>
-        <p className={styles.intro}>
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className={app.intro}>
+          To get started, edit <code>src/App.js</code> and save to reload!
         </p>
       </div>
     );
