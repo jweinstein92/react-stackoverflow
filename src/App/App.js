@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import app from './App.scss';
 import stackoverflow from '../stackoverflow.scss';
-console.log(stackoverflow);
+import NavBar from '../NavBar/NavBar';
+import Header from '../Header/Header';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#fafafb'
+    },
+  },
+  status: {
+    danger: '#F48024',
+  },
+});
 
 class App extends Component {
   render() {
     return (
-      <div className={app.app}>
-        <header className={app.header}>
-          <span className={stackoverflow.logo}>Stack Overflow</span>
-        </header>
-        <p className={app.intro}>
-          To get started, edit <code>src/App.js</code> and save to reload!
-        </p>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <Header></Header>
+        <NavBar></NavBar>
+      </MuiThemeProvider>
     );
   }
 }
