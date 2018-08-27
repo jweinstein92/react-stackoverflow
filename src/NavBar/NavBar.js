@@ -4,6 +4,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 class NavBar extends Component {
@@ -20,11 +21,11 @@ class NavBar extends Component {
         <div className={classes.toolbar} />
         <List>
           <ListItem>
-            <ListItemText primary="Home" />
+            <Link to="/"><ListItemText primary="Home" /></Link>
           </ListItem>
           <Divider />
           <ListItem>
-            <ListItemText primary="Tags" />
+            <Link to="/tags/"><ListItemText primary="Tags" /></Link>
           </ListItem>
           <Divider />
           <ListItem>
@@ -43,7 +44,7 @@ class NavBar extends Component {
 
 const styles = theme => ({
   drawerPaper: {
-    width: '240px'
+    width: theme.standards.navBar.width
   },
   toolbar: theme.mixins.toolbar
 });

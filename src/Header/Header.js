@@ -22,6 +22,7 @@ const styles = theme => ({
   header: {
     borderTop: '3px solid #F48024',
     zIndex: theme.zIndex.drawer + 1,
+    height: theme.standards.toolbar.height
   }
 });
 

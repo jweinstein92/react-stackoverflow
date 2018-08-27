@@ -1,25 +1,7 @@
-.app {
-  // text-align: center;
+html, body {
+  height: 100%
 }
 
-.header {
-  background-color: #fafafb;
-  height: 43px;
-  padding-top: 10px;
-  padding-left: 10px;
-  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
-  border-top: 3px solid #F48024;
-}
-
-.title {
-  font-size: 1.5em;
-}
-
-.intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#root {
+  height: 100%;
 }
