@@ -17,6 +17,9 @@ const theme = createMuiTheme({
     secondary: {
       main: '#fafafb'
     },
+    lightGrayText: {
+      main: '#6a737c'
+    }
   },
   status: {
     danger: '#F48024',
