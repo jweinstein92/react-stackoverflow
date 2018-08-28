@@ -42,6 +42,7 @@ class App extends Component {
             <Content>
               <Route exact path="/" component={HomePage}></Route>
               <Route path="/tags/" component={TagPage}></Route>
+              <Route path="/questions/:questionId" component={TagPage}></Route>
             </Content>
           </div>
         </Router>

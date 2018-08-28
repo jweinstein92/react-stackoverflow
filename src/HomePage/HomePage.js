@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import QuestionList from '../QuestionList/QuestionList';
+
 class HomePage extends Component {
   render() {
     const {classes} = this.props;
@@ -13,6 +15,7 @@ class HomePage extends Component {
             Ask Question
           </Button>
         </header>
+        <QuestionList></QuestionList>
       </div>
     );
   }
