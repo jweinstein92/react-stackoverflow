@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 class Content extends Component {
   render() {
-    console.log(this.props);
     const {classes} = this.props;
 
     return (
@@ -19,8 +18,8 @@ const styles = theme => ({
     position: 'absolute',
     top: theme.standards.toolbar.height,
     left: theme.standards.navBar.width,
-    padding: '32px',
-
+    height: `calc(100vh - ${theme.standards.toolbar.height}px)`,
+    width: `calc(100vw - ${theme.standards.navBar.width}px)`
   }
 });
 

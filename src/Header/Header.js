@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     const {classes} = this.props;
     return (
-      <AppBar className={classes.header}>
+      <AppBar className={classes.header} color="secondary">
         <Toolbar>
           <span className={stackoverflow.logo}>Stack Overflow</span>
         </Toolbar>

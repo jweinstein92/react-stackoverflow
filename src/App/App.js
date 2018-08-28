@@ -12,6 +12,9 @@ import TagPage from '../TagPage/TagPage';
 const theme = createMuiTheme({
   palette: {
     primary: {
+      main: '#0095ff'
+    },
+    secondary: {
       main: '#fafafb'
     },
   },
