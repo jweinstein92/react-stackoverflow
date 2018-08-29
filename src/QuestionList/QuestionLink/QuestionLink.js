@@ -8,16 +8,21 @@ import { Link } from 'react-router-dom';
 class QuestionLink extends Component {
   render() {
     const {classes, question} = this.props;
+    const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada odio ut turpis imperdiet viverra. Praesent auctor eu sem in tincidunt. Nullam euismod at lectus vel fringilla. Nulla sed neque nec urna tincidunt sagittis non sed velit.';
     return (
       <li className={classes.question}>
         <Grid container direction="row" spacing={0} classes={{container: classes.container}}>
           <Grid item xs={1} container direction="column" spacing={16} className={classes.stats}>
             <Grid item><span className={classes.question__count}>{question.score}</span> <span className={classes.question__subtext}>votes</span></Grid>
             <Grid item><span className={classes.question__count}>{question.answer_count}</span> <span className={classes.question__subtext}>answers</span></Grid>
+            <Grid item><span className={classes.question__count}>{question.view_count}</span> <span className={classes.question__subtext}>views</span></Grid>
           </Grid>
           <Grid item xs={8} container direction="column" spacing={16} justify="space-between">
             <Grid item>
               <Link to={`/questions/${question.question_id}`}>{question.title}</Link>
+            </Grid>
+            <Grid item>
+              <p className={classes.body}>{lorem}</p>
             </Grid>
             <Grid item>
               <ul className={classes.tags}>
@@ -26,7 +31,7 @@ class QuestionLink extends Component {
             </Grid>
           </Grid>
           <Grid item xs={2} container direction="column" spacing={16} className={classes.owner} justify="flex-end">
-            <Grid item>
+            <Grid item style={{textAlign: "center"}}>
               <img src={question.owner.profile_image} alt="" width="32" height="32" />
               <div className={classes.owner__details}>
                 <div><a href="#">{question.owner.display_name}</a></div>
@@ -41,6 +46,14 @@ class QuestionLink extends Component {
 }
 
 const styles = theme => ({
+  body: {
+    display: '-webkit-box',
+    '-webkit-line-clamp': '2',
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    margin: '0'
+  },
   container: {
     padding: '8px',
     margin: '8px'

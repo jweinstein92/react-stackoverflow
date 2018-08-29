@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import axios from 'axios';
 
 import QuestionLink from './QuestionLink/QuestionLink';
@@ -81,7 +82,7 @@ class QuestionList extends Component {
           <span className={classes.questions__total}><LargeNumber number={this.state.total}></LargeNumber> Questions</span>
         </div>
         <ul className={classes.questions__list}>
-          { this.state.questions.map(question => <QuestionLink question={question} key={question.question_id}></QuestionLink>) }
+          { this.state.questions.map(question => (<div key={question.question_id}><QuestionLink question={question}></QuestionLink><Divider /></div>)) }
         </ul>
       </div>
     )
