@@ -5,10 +5,24 @@ import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
 
+import Owner from '../../Shared/Owner/Owner';
+
 class QuestionLink extends Component {
+  readableCreationDate(epoch) {
+    let dateFormatOptions = {
+      month: 'short',
+      day: 'numeric',
+      year: '2-digit'
+    };
+    let d = new Date(0);
+    d.setUTCSeconds(epoch);
+
+    return (d.toLocaleDateString("en-US", dateFormatOptions) + ' at ' + d.getHours() + ':' + d.getMinutes());
+  }
   render() {
     const {classes, question} = this.props;
     const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada odio ut turpis imperdiet viverra. Praesent auctor eu sem in tincidunt. Nullam euismod at lectus vel fringilla. Nulla sed neque nec urna tincidunt sagittis non sed velit.';
+    const askedAt = this.readableCreationDate(question.creation_date);
     return (
       <li className={classes.question}>
         <Grid container direction="row" spacing={0} classes={{container: classes.container}}>
@@ -32,11 +46,8 @@ class QuestionLink extends Component {
           </Grid>
           <Grid item xs={2} container direction="column" spacing={16} className={classes.owner} justify="flex-end">
             <Grid item style={{textAlign: "center"}}>
-              <img src={question.owner.profile_image} alt="" width="32" height="32" />
-              <div className={classes.owner__details}>
-                <div><a href="#">{question.owner.display_name}</a></div>
-                <span className={classes.owner__reputation}>{question.owner.reputation}</span>
-              </div>
+              <div className={classes.question__asked}>{askedAt}</div>
+              <Owner owner={question.owner}></Owner>
             </Grid>
           </Grid>
         </Grid>
@@ -58,17 +69,11 @@ const styles = theme => ({
     padding: '8px',
     margin: '8px'
   },
-  owner__details: {
-    display: 'inline-block',
-    margin: '0 5px',
-    fontSize: '12px'
-  },
-  owner__reputation: {
-    fontWeight: 'bold',
+  question: {},
+  question__asked: {
     fontSize: '12px',
     color: theme.palette.lightGrayText.main
   },
-  question: {},
   question__count: {
     display: 'block',
     textAlign: 'center',
@@ -83,7 +88,7 @@ const styles = theme => ({
     color: theme.palette.lightGrayText.main
   },
   stats: {
-    minWidth: '125px'
+    minWidth: '100px'
   },
   tags: {
     padding: '0'
