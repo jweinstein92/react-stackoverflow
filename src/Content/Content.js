@@ -6,9 +6,9 @@ class Content extends Component {
     const {classes} = this.props;
 
     return (
-      <div className={classes.content}>
+      <main className={classes.content}>
         {this.props.children}
-      </div>
+      </main>
     );
   }
 }
@@ -17,9 +17,13 @@ const styles = theme => ({
   content: {
     position: 'absolute',
     top: theme.standards.toolbar.height,
-    left: theme.standards.navBar.width,
+    left: '0',
     height: `calc(100vh - ${theme.standards.toolbar.height}px)`,
-    width: `calc(100vw - ${theme.standards.navBar.width}px)`
+    width: `100vw`,
+    [theme.breakpoints.up('md')]: {
+      left: theme.standards.navBar.width,
+      width: `calc(100vw - ${theme.standards.navBar.width}px)`
+    }
   }
 });
 

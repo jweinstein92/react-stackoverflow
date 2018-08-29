@@ -35,13 +35,25 @@ const theme = createMuiTheme({
 });
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mobileOpen: false
+    }
+    this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+  }
+  handleDrawerToggle() {
+      this.setState(state => ({mobileOpen: !state.mobileOpen}));
+  }
+
   render() {
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
           <div>
-            <Header></Header>
-            <NavBar></NavBar>
+            <Header handleDrawerToggle={this.handleDrawerToggle}></Header>
+            <NavBar handleDrawerToggle={this.handleDrawerToggle} mobileOpen={this.state.mobileOpen}></NavBar>
             <Content>
               <Route exact path="/" component={HomePage}></Route>
               <Route path="/tags/" component={TagPage}></Route>
